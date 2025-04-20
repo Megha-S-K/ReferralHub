@@ -35,6 +35,8 @@ function App() {
 }
 
 export default App;*/
+
+/*
 import React from "react";
 import "./index.css"; // Remove styles import, just import CSS directly
 import Layout from './Layout/Layout';
@@ -42,6 +44,39 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-rou
 import LoginPage from "./components/LoginPage";
 import Registeration from "./components/Registeration"; // Fix spelling
 import PlatformSetup from "./Layout/PlatformSetup";
+import Dashboard from "./Layout/Dashboard";
+
+function App() {
+  return (
+    <div className="min-h-screen">
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/Registeration" element={<Registeration />} /> 
+          <Route path="/PlatformSetup" element={
+            <Layout>
+              <PlatformSetup>
+              <Dashboard/>
+              </PlatformSetup>
+            </Layout>
+          } />
+        </Routes>
+      </Router>
+      </div>
+  );
+}
+
+export default App;
+
+*/
+import React from "react";
+import "./index.css"; // Remove styles import, just import CSS directly
+import Layout from './Layout/Layout';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import Registeration from "./components/Registeration"; // Fix spelling
+import PlatformSetup from "./Layout/PlatformSetup";
+import Dashboard from "./Layout/Dashboard";
 
 function App() {
   return (
@@ -50,14 +85,11 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/Registeration" element={<Registeration />} /> {/* Fix path case */}
-          <Route path="/PlatformSetup" element={
-            <Layout>
-              <PlatformSetup/>
-            </Layout>
-          } />
+          <Route path="/PlatformSetup" element={<PlatformSetup />} />
+          <Route path="/Dashboard" element={<Layout><Dashboard /></Layout>} />
         </Routes>
       </Router>
-      </div>
+    </div>
   );
 }
 
